@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package store.contracts.shopping;
+
+option java_multiple_files = true;
+option java_package = "store.contracts.shopping";
+option java_outer_classname = "ShoppingProto";
+
+
+service ShoppingService {
+  rpc GetProducts(GetProductsRequest) returns (GetProductsResponse);
+}
+
+message GetProductsRequest {
+  int32 limit = 1;
+}
+
+message GetProductsResponse {
+  repeated Product products = 1;
+}
+
+message Product {
+  string id = 1;
+  string name = 2;
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CheckStyle-IDEA">
+    <option name="configuration">
+      <map>
+        <entry key="active-configuration" value="HTTP_URL:http://git.vidispine.com/loveengman/checkstyle-test/raw/master/vidispine-checks.xml:Vidispine Checksss" />
+        <entry key="checkstyle-version" value="8.28" />
+        <entry key="copy-libs" value="false" />
+        <entry key="location-0" value="BUNDLED:(bundled):Sun Checks" />
+        <entry key="location-1" value="BUNDLED:(bundled):Google Checks" />
+        <entry key="location-2" value="HTTP_URL:http://git.vidispine.com/loveengman/checkstyle-test/raw/master/vidispine-checks.xml:Vidispine Checksss" />
+        <entry key="property-2.org.checkstyle.google.suppressionfilter.config" value="" />
+        <entry key="property-2.org.checkstyle.google.suppressionxpathfilter.config" value="" />
+        <entry key="scan-before-checkin" value="false" />
+        <entry key="scanscope" value="JavaOnlyWithTests" />
+        <entry key="suppress-errors" value="false" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="temurin-21" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>
