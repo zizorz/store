@@ -16,7 +16,8 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
+//	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'net.devh:grpc-spring-boot-starter:2.15.0.RELEASE'
 	implementation project(':contracts')
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'

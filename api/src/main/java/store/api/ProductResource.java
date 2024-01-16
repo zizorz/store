@@ -1,32 +1,31 @@
 package store.api;
 
+import net.devh.boot.grpc.client.inject.GrpcClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-//import store.contracts.generated.main.java.store.contracts.StoreContracts;
-
 import store.contracts.shopping.GetProductsRequest;
-import store.contracts.shopping.ShoppingProto;
+import store.contracts.shopping.ShoppingServiceGrpc.ShoppingServiceBlockingStub;
 
-import java.util.Arrays;
 import java.util.List;
 
 @RestController()
 public class ProductResource {
 
+    @GrpcClient("shopping-service")
+    private ShoppingServiceBlockingStub shoppingServiceStub;
 
     @GetMapping("/products")
-    public List<Product> products() {
-
-
-//        var request = GetProductsRequest.newBuilder().build();
-//        ShoppingProto.getDescriptor()
-
-//        StoreContracts storeContracts = new StoreContracts();
-//        StoreContracts storeContracts = null;
-//        store.contracts..ShoppingProto;
+    public List<ProductDto> products() {
         System.out.println(Thread.currentThread().getName());
         System.out.println(Thread.currentThread().isVirtual());
-        return Arrays.asList(new Product("1", "Product 1"), new Product("2", "Product 2"));
+
+        var request = GetProductsRequest.newBuilder().setLimit(5).build();
+        var response = shoppingServiceStub.getProducts(request);
+
+        return response.getProductsList()
+                .stream()
+                .map(product -> new ProductDto(product.getId(), product.getName()))
+                .toList();
     }
 
 }
