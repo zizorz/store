@@ -27,5 +27,4 @@ public class ProductResource {
                 .map(product -> new ProductDto(product.getId(), product.getName()))
                 .toList();
     }
-
 }

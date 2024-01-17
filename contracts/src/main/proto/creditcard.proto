@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+
+package store.contracts.creditcard;
+
+option java_multiple_files = true;
+option java_package = "store.contracts.creditcard";
+option java_outer_classname = "CreditCardProto";
+
+
+service CreditCardService {
+  rpc AuthorizeCreditCard(AuthorizeCreditCardRequest) returns (AuthorizeCreditCardResponse);
+}
+
+message AuthorizeCreditCardRequest {
+  string creditCardNumber = 1;
+}
+
+message AuthorizeCreditCardResponse {
+  bool authorized = 1;
+}

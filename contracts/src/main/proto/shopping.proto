@@ -9,6 +9,7 @@ option java_outer_classname = "ShoppingProto";
 
 service ShoppingService {
   rpc GetProducts(GetProductsRequest) returns (GetProductsResponse);
+  rpc PurchaseProduct(PurchaseProductRequest) returns (PurchaseProductResponse);
 }
 
 message GetProductsRequest {
@@ -22,4 +23,14 @@ message GetProductsResponse {
 message Product {
   string id = 1;
   string name = 2;
+}
+
+
+message PurchaseProductRequest {
+  string productId = 1;
+}
+
+message PurchaseProductResponse {
+  string purchaseId = 1;
+  string productId = 2;
 }

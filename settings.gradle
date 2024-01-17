@@ -1,2 +1,2 @@
 rootProject.name = 'store'
-include 'contracts', 'shopping-service', 'api'
+include 'contracts', 'shopping-service', 'creditcard-service', 'api'
