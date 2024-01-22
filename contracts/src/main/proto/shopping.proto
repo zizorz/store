@@ -34,3 +34,8 @@ message PurchaseProductResponse {
   string purchaseId = 1;
   string productId = 2;
 }
+
+message Purchase {
+  string id = 1;
+  string productId = 2;
+}

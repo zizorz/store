@@ -12,6 +12,9 @@ import java.util.UUID;
 @GrpcService
 public class ShoppingService extends ShoppingServiceImplBase {
 
+
+    private final PurchasesProducer purchasesProducer;
+
     private final Set<Product> products = Set.of(
             Product.newBuilder()
                     .setId("1")
@@ -26,6 +29,10 @@ public class ShoppingService extends ShoppingServiceImplBase {
                     .setName("Product 3")
                     .build()
     );
+
+    public ShoppingService(PurchasesProducer purchasesProducer) {
+        this.purchasesProducer = purchasesProducer;
+    }
 
 
     @Override
@@ -50,9 +57,18 @@ public class ShoppingService extends ShoppingServiceImplBase {
             return;
         }
 
+        var purchaseId = UUID.randomUUID();
+
+        var purchase = Purchase.newBuilder()
+                .setId(purchaseId.toString())
+                .setProductId(product.get().getId())
+                .build();
+
+        purchasesProducer.sendMessage(purchaseId.toString(), purchase);
+
         var response = PurchaseProductResponse.newBuilder()
                 .setProductId(product.get().getId())
-                .setPurchaseId(UUID.randomUUID().toString())
+                .setPurchaseId(purchaseId.toString())
                 .build();
 
         responseObserver.onNext(response);
