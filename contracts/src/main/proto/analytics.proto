@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+
+package store.contracts.analytics;
+
+option java_multiple_files = true;
+option java_package = "store.contracts.analytics";
+option java_outer_classname = "AnalyticsProto";
+
+
+service AnalyticsService {
+  rpc GetPopularProducts (PopularProductsRequest) returns (PopularProductsResponse);
+}
+
+message PopularProductsRequest {
+
+}
+
+message PopularProductsResponse {
+  map<string, int64> productCounts = 1;
+}
+
+
+

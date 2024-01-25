@@ -8,6 +8,20 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/analytics-service" />
+            <option value="$PROJECT_DIR$/api" />
+            <option value="$PROJECT_DIR$/contracts" />
+            <option value="$PROJECT_DIR$/creditcard-service" />
+            <option value="$PROJECT_DIR$/shopping-service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/analytics-service" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/analytics-service" />
             <option value="$PROJECT_DIR$/api" />
             <option value="$PROJECT_DIR$/contracts" />
             <option value="$PROJECT_DIR$/creditcard-service" />
@@ -20,6 +34,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/analytics-service" />
             <option value="$PROJECT_DIR$/api" />
             <option value="$PROJECT_DIR$/contracts" />
             <option value="$PROJECT_DIR$/creditcard-service" />

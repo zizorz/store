@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
+import store.api.dtos.PurchaseDto;
 import store.contracts.creditcard.AuthorizeCreditCardRequest;
 import store.contracts.creditcard.CreditCardServiceGrpc.CreditCardServiceBlockingStub;
 import store.contracts.shopping.PurchaseProductRequest;

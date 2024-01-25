@@ -1,10 +1,12 @@
 package store.shoppingservice;
 
+import com.google.protobuf.Timestamp;
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
 import store.contracts.shopping.*;
 import store.contracts.shopping.ShoppingServiceGrpc.ShoppingServiceImplBase;
 
+import java.time.Instant;
 import java.util.Set;
 import java.util.UUID;
 
@@ -59,9 +61,12 @@ public class ShoppingService extends ShoppingServiceImplBase {
 
         var purchaseId = UUID.randomUUID();
 
+
+        var now = Instant.now();
         var purchase = Purchase.newBuilder()
                 .setId(purchaseId.toString())
                 .setProductId(product.get().getId())
+                .setTimestamp(Timestamp.newBuilder().setSeconds(now.getEpochSecond()).setNanos(now.getNano()).build())
                 .build();
 
         purchasesProducer.sendMessage(purchaseId.toString(), purchase);
