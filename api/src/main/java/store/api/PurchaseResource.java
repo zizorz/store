@@ -3,6 +3,7 @@ package store.api;
 
 import net.devh.boot.grpc.client.inject.GrpcClient;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,7 +14,8 @@ import store.contracts.creditcard.CreditCardServiceGrpc.CreditCardServiceBlockin
 import store.contracts.shopping.PurchaseProductRequest;
 import store.contracts.shopping.ShoppingServiceGrpc.ShoppingServiceBlockingStub;
 
-@RestController
+@RestController()
+@CrossOrigin(origins = "*")
 public class PurchaseResource {
 
 
@@ -24,7 +26,7 @@ public class PurchaseResource {
     private ShoppingServiceBlockingStub shoppingServiceStub;
 
 
-    @PostMapping("/purchases")
+    @PostMapping(value = "/purchases", consumes = "application/json", produces = "application/json")
     public PurchaseDto purchaseProduct(@RequestBody PurchaseRequest request) {
         var creditCardRequest = AuthorizeCreditCardRequest
                 .newBuilder()

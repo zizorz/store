@@ -1,6 +1,7 @@
 package store.api;
 
 import net.devh.boot.grpc.client.inject.GrpcClient;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import store.api.dtos.ProductDto;
@@ -10,6 +11,7 @@ import store.contracts.shopping.ShoppingServiceGrpc.ShoppingServiceBlockingStub;
 import java.util.List;
 
 @RestController()
+@CrossOrigin
 public class ProductResource {
 
     @GrpcClient("shopping-service")
