@@ -32,21 +32,23 @@ The frontend is written in JavaScript using the React library. It uses Material-
 
 ## Setup
 
-To run this project, you need to have Java, npm, and Gradle installed. Clone the repository, navigate to the project directory, and follow the instructions below:
+To run this project, you need to have Java, npm and docker installed. Clone the repository, navigate to the project directory, and follow the instructions below:
 
-1. Build:
+1. Running Kafka:
 ```bash
-./gradlew build
+cd docker/kafka
+docker-compose up
 ```
-   
-2. Run:  
+
+
+2. Run backend:  
 For each backend project:
 ```bash
 cd {project}
 ./gradlew bootRun
 ```
 
-2. Install the frontend dependencies and start the development server:
+3. Install the frontend dependencies and start the development server:
 ```bash
 cd react-ui
 npm install
