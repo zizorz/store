@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: store-analytics-service
+spec:
+  selector:
+    app: store-analytics-service
+  ports:
+    - port: 9099
+      targetPort: 9099
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: store-analytics-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: store-analytics-service
+  template:
+    metadata:
+      labels:
+        app: store-analytics-service
+    spec:
+      containers:
+        - name: store-analytics-service
+          image: store-analytics:latest
+          ports:
+            - containerPort: 9099
+          env:
+            - name: KAFKA_SERVER
+              value: kafka-service:9093
+          imagePullPolicy: IfNotPresent

@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: store-api
+spec:
+  selector:
+    app: store-api
+  ports:
+    - port: 8080
+      targetPort: 8080
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: store-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: store-api
+  template:
+    metadata:
+      labels:
+        app: store-api
+    spec:
+      containers:
+        - name: store-api
+          image: store-api:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SHOPPING_SERVICE_ADDRESS
+              value: static://store-shopping-service:9091
+            - name: CREDITCARD_SERVICE_ADDRESS
+              value: static://store-creditcard-service:9092
+            - name: ANALYTICS_SERVICE_ADDRESS
+              value: static://store-analytics-service:9099
+          imagePullPolicy: IfNotPresent

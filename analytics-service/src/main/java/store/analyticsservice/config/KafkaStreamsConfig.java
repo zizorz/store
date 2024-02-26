@@ -25,9 +25,6 @@ public class KafkaStreamsConfig {
     @Value(value = "${spring.kafka.bootstrap-servers}")
     private String bootstrapAddress;
 
-    @Value(value = "${grpc.server.port}")
-    private String applicationServerPort;
-
     @Bean(name = KafkaStreamsDefaultConfiguration.DEFAULT_STREAMS_CONFIG_BEAN_NAME)
     KafkaStreamsConfiguration kStreamsConfig() {
         Map<String, Object> props = new HashMap<>();
@@ -36,7 +33,6 @@ public class KafkaStreamsConfig {
         props.put(DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass().getName());
         props.put(DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass().getName());
         props.put(AUTO_OFFSET_RESET_CONFIG, "earliest");
-        props.put(APPLICATION_SERVER_CONFIG, "localhost:" + applicationServerPort);
         props.put(COMMIT_INTERVAL_MS_CONFIG, "100");
 
         return new KafkaStreamsConfiguration(props);

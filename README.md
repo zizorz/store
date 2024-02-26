@@ -1,6 +1,7 @@
 # Store Application
 
-This is a repo for trying out distributed systems technology. Here we are playing with e.g. gRPC, Kafka, micro services and API composition. There is also a small React UI. 
+This is a repo for trying out distributed systems technologies. We are building a simple store application using a microservices architecture.
+We are playing with gRPC, Kafka, circuit breakers, API composition and Kubernetes. There is also a small React UI. 
 
 ## Backend
 
@@ -56,3 +57,20 @@ npm start
 ```
 
 The application should now be running at `http://localhost:3000`.
+
+
+## Running in k8s
+
+1. Build the modules:
+```bash
+./gradlew build
+```
+
+2. Build the docker images:
+```bash
+./docker-build.sh
+```
+3. Apply k8s configuration:
+```bash
+kubectl apply -f k8s
+```
