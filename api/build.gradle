@@ -21,6 +21,8 @@ dependencies {
 	implementation project(':contracts')
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation "io.github.resilience4j:resilience4j-circuitbreaker:2.2.0"
+	implementation 'io.vavr:vavr:1.0.0-alpha-4'
 }
 
 tasks.named('test') {

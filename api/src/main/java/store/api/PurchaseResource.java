@@ -18,7 +18,6 @@ import store.contracts.shopping.ShoppingServiceGrpc.ShoppingServiceBlockingStub;
 @CrossOrigin(origins = "*")
 public class PurchaseResource {
 
-
     @GrpcClient("creditcard-service")
     private CreditCardServiceBlockingStub creditCardServiceStub;
 
